@@ -1,0 +1,31 @@
+.hero-section {
+  background-color: var(--seashell);
+  color: var(--jet);
+}
+
+.hero-section .greeting {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--battleship-gray);
+}
+
+.hero-section .main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--battleship-gray);
+  margin-bottom: 0.5rem;
+}
+
+.hero-section .subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fawn);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-section .hero-text p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--jet);
+}

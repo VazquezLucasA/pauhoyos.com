@@ -1,0 +1,74 @@
+/* components/Navbar/Navbar.css */
+.custom-navbar {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  margin: 0 0.75rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00b4d8;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-cta {
+  border-radius: 25px;
+  padding: 0.5rem 1.75rem !important;
+  transition: all 0.3s ease;
+  border: 2px solid #00b4d8;
+  background: transparent;
+}
+
+.navbar-cta:hover {
+  background: #00b4d8;
+  border-color: transparent;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(10, 10, 10, 0.98);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+  }
+  
+  .nav-link {
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px;
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .navbar-cta {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+}
