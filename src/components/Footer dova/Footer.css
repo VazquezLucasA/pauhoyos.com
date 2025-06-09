@@ -1,22 +1,39 @@
-/* components/Footer/Footer.css */
+/* src/components/Footer/Footer.css */
 .site-footer {
-  background: #0a0a0a;
-  color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--jet);
+  color: var(--seashell);
+  padding-top: 2rem;
+}
+
+.footer-col {
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .footer-col {
+    text-align: left;
+  }
 }
 
 .footer-brand {
-  color: #00b4d8;
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--fawn);
   margin-bottom: 1rem;
 }
 
-.footer-title {
-  color: #fff;
-  font-size: 1.1rem;
+.footer-text {
+  color: var(--champagne-pink);
   margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(0, 180, 216, 0.3);
+}
+
+.footer-title {
+  font-weight: 600;
+  color: var(--fawn);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
 }
 
 .footer-links {
@@ -24,42 +41,43 @@
   padding-left: 0;
 }
 
-.footer-link {
-  color: rgba(255, 255, 255, 0.7);
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links .footer-link,
+.footer-links span {
+  color: var(--champagne-pink);
   text-decoration: none;
-  padding: 0.25rem 0;
-  display: block;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
-.footer-link:hover {
-  color: #00b4d8;
-  padding-left: 0.5rem;
+.footer-links .footer-link:hover {
+  color: white;
+  padding-left: 5px;
 }
 
-/* Sección Contacto Modificada */
-.footer-contact {
-  list-style: none; /* Elimina los puntos de la lista */
-  padding-left: 0;  /* Elimina el padding izquierdo por defecto */
+.footer-social-links a {
+  color: var(--champagne-pink);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
 }
 
-.footer-contact li {
-  margin-bottom: 0.25rem; /* Ajusta espaciado para igualar con otras secciones */
-}
-
-.footer-contact .footer-link:hover {
-  padding-left: 0.5rem; /* Mantiene efecto hover consistente */
+.footer-social-links a:hover {
+  color: var(--fawn);
+  transform: scale(1.2);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--battleship-gray);
   padding: 1.5rem 0;
-  margin-top: 2rem;
   text-align: center;
 }
 
 .copyright-text {
   margin: 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--battleship-gray);
 }

@@ -1,0 +1,28 @@
+/* src/pages/Servicios/Servicios.css */
+.service-card {
+  background-color: white;
+  border: 1px solid var(--champagne-pink);
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon i {
+  font-size: 3rem;
+  color: var(--fawn);
+}
+
+.service-title {
+  color: var(--jet);
+  font-weight: 600;
+}
+
+.service-description {
+  color: var(--battleship-gray);
+  min-height: 100px;
+}

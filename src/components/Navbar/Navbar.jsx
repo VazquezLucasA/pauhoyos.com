@@ -5,7 +5,7 @@ import Logo from '../../assets/img/pph logo.png'; // Adjust the path as necessar
 
 export default function CustomNavbar() {
   return (
-    <Navbar expand="lg" style={{ backgroundColor: 'var(--fawn)' }}>
+    <Navbar expand="lg fixed-top" style={{ backgroundColor: 'var(--fawn)' }}>
       <Container fluid="xxl">
         <Navbar.Brand as={Link} to="/" style={{ color: 'var(--jet)', fontWeight: 'bold' }}>
           <img

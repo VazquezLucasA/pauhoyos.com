@@ -29,3 +29,8 @@
   font-size: 1rem;
   color: var(--jet);
 }
+
+.name {
+  font-weight: bold;
+  color: var(--battleship-gray);
+}

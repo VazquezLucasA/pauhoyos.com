@@ -1,8 +1,19 @@
+/* src/styles/global.css */
+
+/* Paleta de colores */
 :root {
---jet: #2f2f2fff;
---battleship-gray: #788585ff;
---fawn: #f2b880ff;
---seashell: #fff4ecff;
---champagne-pink: #e7cfbcff;
---light-gray: #d3d3d3ff; 
+  --jet: #2f2f2fff;
+  --battleship-gray: #788585ff;
+  --fawn: #f2b880ff;
+  --seashell: #fff4ecff;
+  --champagne-pink: #e7cfbcff;
+  --light-gray: #d3d3d3ff; 
 }
+
+body {
+  font-family: 'Poppins', sans-serif; /* Usar una fuente más moderna si te gusta */
+  background-color: var(--seashell);
+  padding-top: 80px; /* Ajusta este valor según la altura de tu Navbar */
+}
+
+/* Estilos para react-toastify (si los tienes aquí) */

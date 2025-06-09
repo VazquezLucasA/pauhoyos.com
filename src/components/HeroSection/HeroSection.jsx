@@ -9,7 +9,7 @@ export default function HeroSection() {
         <Row className="align-items-center">
           <Col md={6} className="text-section">
             <p className="greeting">Hola,</p>
-            <h1 className="main-title">Me llamo Paula<br />y soy psicóloga,</h1>
+            <h1 className="main-title">Me llamo Paula<br />y estudio psicoloía,</h1>
             <p className="subtitle">además de una apasionada de la vida y de las personas.</p>
             <div className="hero-text">
               <p><i>Ser <strong>diferente</strong> no es algo malo.</i></p>
