@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col, Card, Alert } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import authService from '../../services/authService';
+import authService from '../../services/auth.service';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -16,7 +16,7 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
     try {
-      await authService.login({ email, password });
+      await authService.login({ username: email, password });
       navigate('/psikipedia'); // Redirige a la página protegida tras el login
     } catch (err) {
       setError('Credenciales incorrectas. Por favor, inténtalo de nuevo.');
@@ -37,7 +37,7 @@ export default function LoginPage() {
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label style={{ color: 'var(--battleship-gray)' }}>Correo electrónico</Form.Label>
-                  <Form.Control type="email" placeholder="Ingresa tu email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                  <Form.Control type="text" placeholder="Ingresa tu email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">

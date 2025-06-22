@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Ensure this URL is correct and your backend is running.
-const API_URL = 'http://10.2.56.60:5000/api/auth';
+const API_URL = 'https://api.dovanet.com.ar/api/auth';
 
 /**
  * Registers a new user.

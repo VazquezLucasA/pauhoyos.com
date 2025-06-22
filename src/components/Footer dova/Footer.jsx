@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <div className="footer-social-links">
               <a href="https://instagram.com" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
-              <a href="https://linkedin.com" aria-label="LinkedIn"><i className="bi bi-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/mar%C3%ADa-paula-hoyos-29a949320/" aria-label="LinkedIn"><i className="bi bi-linkedin"></i></a>
               <a href="https://facebook.com" aria-label="Facebook"><i className="bi bi-facebook"></i></a>
               <a href="https://wa.me/5493811234567" aria-label="Whatsapp"><i className="bi bi-whatsapp"></i></a>
             </div>
@@ -39,7 +39,7 @@ export default function Footer() {
             <h6 className="footer-title">Contacto</h6>
             <ul className="footer-links">
               <li><a href="tel:+5493811234567" className="footer-link">+54 9 381 123-4567</a></li>
-              <li><a href="mailto:paula.psicologia@email.com" className="footer-link">paula.psicologia@email.com</a></li>
+              <li><a href="mailto:psicopauhoyos@gmail.com" className="footer-link">psicopauhoyos@gmail.com</a></li>
               <li><span>Tucumán, Argentina</span></li>
             </ul>
           </Col>

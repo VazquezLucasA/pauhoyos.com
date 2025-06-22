@@ -36,7 +36,7 @@ export default function Contacto() {
               <h4 className="contact-card-subtitle">Sígueme en Redes</h4>
               <div className="social-links-contacto">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/mar%C3%ADa-paula-hoyos-29a949320/" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin"></i></a>
                 <a href="https://wa.me/5493811234567" target="_blank" rel="noopener noreferrer"><i className="bi bi-whatsapp"></i></a>
               </div>
             </Card.Body>

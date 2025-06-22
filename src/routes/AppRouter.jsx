@@ -5,7 +5,7 @@ import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 import MainLayout from '../layouts/MainLayout';
 
 // Servicios de autenticación
-import authService from '../services/authService';
+import authService from '../services/auth.service';
 
 // Páginas Públicas
 import Home from '../pages/Home/Home';
