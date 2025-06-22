@@ -29,7 +29,7 @@ export default function LoginPage() {
   return (
     <Container className="py-5">
       <Row className="justify-content-center">
-        <Col md={6}>
+        <Col md={14}>
           <Card style={{ backgroundColor: 'var(--seashell)', border: '1px solid var(--champagne-pink)' }}>
             <Card.Body className="p-4">
               <h2 className="text-center mb-4" style={{ color: 'var(--jet)' }}>Iniciar Sesión</h2>

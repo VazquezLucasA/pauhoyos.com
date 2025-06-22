@@ -15,7 +15,7 @@ export default function Contacto() {
 
       <Row>
         {/* Información de Contacto */}
-        <Col md={5} className="mb-4">
+        <Col md={12} className="mb-4">
           <Card className="contact-card h-100">
             <Card.Body>
               <h3 className="contact-card-title">Información</h3>
@@ -44,7 +44,7 @@ export default function Contacto() {
         </Col>
 
         {/* Mapa */}
-        <Col md={7}>
+        <Col md={12}>
           <div className="map-responsive">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113926.31481231885!2d-65.29296229342407!3d-26.832993420330386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94223792d6c56903%3A0xf88d5b92b5c56527!2sSan%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1672532412345!5m2!1ses-419!2sar"
