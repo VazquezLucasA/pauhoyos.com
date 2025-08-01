@@ -2,6 +2,9 @@
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import profileImage from '../../assets/img/example.jpg'; // Reemplaza con tu foto
+import foto from '../../assets/img/foto.jpg';
+import retrato1 from '../../assets/img/retrato1.jpg'; // Asegúrate de que esta imagen exista
+import retrato2 from '../../assets/img/retrato2.jpg'; // Asegúrate de
 import './SobreMi.css';
 
 export default function SobreMi() {
@@ -10,7 +13,7 @@ export default function SobreMi() {
       <Container className="py-5">
         <Row className="align-items-center">
           <Col lg={5} className="text-center mb-4 mb-lg-0">
-            <Image src={profileImage} roundedCircle fluid className="profile-image" />
+            <Image src={retrato2} roundedCircle fluid className="profile-image" width="500px"/>
           </Col>
           <Col lg={7}>
             <h1 className="sobre-mi-title">Un poco sobre mí...</h1>

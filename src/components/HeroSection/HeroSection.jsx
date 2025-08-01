@@ -1,6 +1,9 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './HeroSection.css';
 import heroImage from '../../assets/img/example.jpg'; // cambialo por tu imagen real
+import foto from '../../assets/img/foto.jpg'; // asegúrate de que esta imagen exista
+import fotonueva from '../../assets/img/foto nueva.jpg'; // asegúrate de que esta imagen exista
+
 
 export default function HeroSection() {
   return (
@@ -20,7 +23,7 @@ export default function HeroSection() {
             </div>
           </Col>
           <Col md={6} className="image-section text-center mt-4 mt-md-0">
-            <img src={heroImage} alt="Psicóloga Ana" className="img-fluid rounded" />
+            <img src={fotonueva} alt="Psicóloga Ana" className="img-fluid rounded shadow-lg" />
           </Col>
         </Row>
       </Container>
