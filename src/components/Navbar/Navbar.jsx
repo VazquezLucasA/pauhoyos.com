@@ -1,17 +1,26 @@
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container, Button, NavDropdown } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import './Navbar.css';
-import Logo from '../../assets/img/pph logo.png'; // Adjust the path as necessary
+import Logo from '../../assets/img/pph logo.png';
 
 export default function CustomNavbar() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
+
   return (
     <Navbar expand="lg fixed-top" style={{ backgroundColor: 'var(--fawn)' }}>
       <Container fluid="xxl">
         <Navbar.Brand as={Link} to="/" style={{ color: 'var(--jet)', fontWeight: 'bold' }}>
           <img
-            src={Logo}  
+            src={Logo}
             alt="Logo"
-            style={{ width: '50px'}}
+            style={{ width: '50px' }}
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="main-navbar" />
@@ -23,7 +32,18 @@ export default function CustomNavbar() {
             <Nav.Link as={Link} to="/contacto" style={{ color: 'var(--jet)' }}>Contacto</Nav.Link>
             <Nav.Link as={Link} to="/psikipedia" style={{ color: 'var(--jet)' }}>psikipedia</Nav.Link>
           </Nav>
-          <Nav>
+          <Nav className="align-items-center" style={{ gap: '1rem' }}>
+            {user ? (
+              <NavDropdown title={user.full_name || user.email} id="user-nav-dropdown" align="end">
+                <NavDropdown.Item as={Link} to="/dashboard">Mi Panel</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <Nav.Link as={Link} to="/login" style={{ color: 'var(--jet)', fontWeight: 'bold' }}>
+                Ingresar
+              </Nav.Link>
+            )}
             <Button
               as={Link}
               to="/reservar-turno"

@@ -1,25 +1,28 @@
 // src/pages/Login/LoginPage.jsx
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col, Card, Alert } from 'react-bootstrap';
-import { useNavigate, Link } from 'react-router-dom';
-import authService from '../../services/auth.service';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const redirectTo = location.state?.from || '/dashboard';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     try {
-      await authService.login({ username: email, password });
-      navigate('/psikipedia'); // Redirige a la página protegida tras el login
+      await login({ email, password });
+      navigate(redirectTo, { replace: true });
     } catch (err) {
-      setError('Credenciales incorrectas. Por favor, inténtalo de nuevo.');
+      setError(err.response?.data?.error || 'Credenciales incorrectas o cuenta no verificada.');
       console.error(err);
     } finally {
       setLoading(false);

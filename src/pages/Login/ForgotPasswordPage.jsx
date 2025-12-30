@@ -17,9 +17,9 @@ const ForgotPasswordPage = () => {
     setMessage('');
     try {
       const response = await authService.forgotPassword(email);
-      setMessage(response.data.message || 'Si el email está registrado, recibirás un enlace para restablecer tu contraseña.');
+      setMessage(response.message || 'Si el email está registrado, recibirás un enlace para restablecer tu contraseña.');
     } catch (err) {
-      setError(err.response?.data?.message || 'Error al enviar la solicitud.');
+      setError(err.response?.data?.error || 'Error al enviar la solicitud.');
     } finally {
       setLoading(false);
     }
@@ -34,10 +34,10 @@ const ForgotPasswordPage = () => {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>Email Corporativo Registrado</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Ingresa tu email dova"
+                placeholder="Ingresa tu email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

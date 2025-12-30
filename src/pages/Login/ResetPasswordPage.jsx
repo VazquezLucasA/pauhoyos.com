@@ -1,11 +1,13 @@
 // Pages/Login/ResetPasswordPage.jsx
 import { useState, useEffect } from 'react';
 import { Form, Button, Alert, Card, Container } from 'react-bootstrap';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useSearchParams } from 'react-router-dom';
 import authService from '../../services/auth.service';
 
 const ResetPasswordPage = () => {
-  const { token } = useParams();
+  const { token: tokenParam } = useParams();
+  const [searchParams] = useSearchParams();
+  const token = tokenParam || searchParams.get('token');
   const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -48,11 +50,11 @@ const ResetPasswordPage = () => {
     setMessage('');
 
     try {
-      const response = await authService.resetPassword(token, password);
-      setMessage(response.data.message || 'Contraseña restablecida con éxito. Serás redirigido al login.');
+      const response = await authService.resetPassword(token, password, confirmPassword);
+      setMessage(response.message || 'Contraseña restablecida con éxito. Serás redirigido al login.');
       setRedirecting(true);
     } catch (err) {
-      setError(err.response?.data?.message || 'Error al restablecer la contraseña. El token puede ser inválido o haber expirado.');
+      setError(err.response?.data?.error || 'Error al restablecer la contraseña. El token puede ser inválido o haber expirado.');
     } finally {
       setLoading(false);
     }
