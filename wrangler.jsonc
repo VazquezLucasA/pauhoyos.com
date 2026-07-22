@@ -17,12 +17,5 @@
       "pattern": "pauhoyos.com",
       "custom_domain": true
     }
-  ],
-  "secrets": {
-    "required": [
-      "RSVP_APPS_SCRIPT_URL",
-      "RSVP_SHARED_SECRET",
-      "TURNSTILE_SECRET"
-    ]
-  }
+  ]
 }
