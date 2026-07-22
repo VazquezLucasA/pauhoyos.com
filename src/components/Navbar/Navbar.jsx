@@ -1,65 +1,81 @@
-import { Navbar, Nav, Container, Button, NavDropdown } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import logo from '../../assets/img/pph logo.png';
 import './Navbar.css';
-import Logo from '../../assets/img/pph logo.png';
 
-export default function CustomNavbar() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+const navItems = [
+  { id: 'inicio', label: 'Inicio' },
+  { id: 'servicios', label: 'Servicios' },
+  { id: 'sobre-mi', label: 'Sobre mí' },
+  { id: 'contacto', label: 'Contacto' },
+];
 
-  const handleLogout = async () => {
-    await logout();
-    navigate('/login');
-  };
+export default function Navbar() {
+  const { pathname } = useLocation();
+  const [activeSection, setActiveSection] = useState('inicio');
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (pathname !== '/') return undefined;
+
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible) setActiveSection(visible.target.id);
+      },
+      { rootMargin: '-35% 0px -50% 0px', threshold: [0.05, 0.25, 0.5] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
-    <Navbar expand="lg fixed-top" style={{ backgroundColor: 'var(--fawn)' }}>
-      <Container fluid="xxl">
-        <Navbar.Brand as={Link} to="/" style={{ color: 'var(--jet)', fontWeight: 'bold' }}>
-          <img
-            src={Logo}
-            alt="Logo"
-            style={{ width: '50px' }}
-          />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="main-navbar" />
-        <Navbar.Collapse id="main-navbar" className="justify-content-between">
-          <Nav className="mx-auto" style={{ gap: '1rem' }}>
-            <Nav.Link as={Link} to="/" style={{ color: 'var(--jet)' }}>Inicio</Nav.Link>
-            <Nav.Link as={Link} to="/sobre-mi" style={{ color: 'var(--jet)' }}>Sobre mí</Nav.Link>
-            <Nav.Link as={Link} to="/servicios" style={{ color: 'var(--jet)' }}>Servicios</Nav.Link>
-            <Nav.Link as={Link} to="/contacto" style={{ color: 'var(--jet)' }}>Contacto</Nav.Link>
-            <Nav.Link as={Link} to="/psikipedia" style={{ color: 'var(--jet)' }}>psikipedia</Nav.Link>
-          </Nav>
-          <Nav className="align-items-center" style={{ gap: '1rem' }}>
-            {user ? (
-              <NavDropdown title={user.full_name || user.email} id="user-nav-dropdown" align="end">
-                <NavDropdown.Item as={Link} to="/dashboard">Mi Panel</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
-              </NavDropdown>
-            ) : (
-              <Nav.Link as={Link} to="/login" style={{ color: 'var(--jet)', fontWeight: 'bold' }}>
-                Ingresar
-              </Nav.Link>
-            )}
-            <Button
-              as={Link}
-              to="/reservar-turno"
-              variant="dark"
-              style={{
-                backgroundColor: 'var(--jet)',
-                borderColor: 'var(--jet)',
-                color: 'var(--fawn)',
-                borderRadius: '0.5rem',
-              }}
+    <header className="main-navbar">
+      <a className="brand-link" href="/#inicio" aria-label="Volver al inicio">
+        <img src={logo} alt="Paula Hoyos" />
+      </a>
+
+      <button
+        className="nav-toggle"
+        type="button"
+        aria-expanded={open}
+        aria-controls="main-navigation"
+        onClick={() => setOpen((value) => !value)}
+      >
+        <span />
+        <span />
+        <span />
+        <span className="sr-only">Abrir menú</span>
+      </button>
+
+      <nav id="main-navigation" className={open ? 'nav-links is-open' : 'nav-links'}>
+        {navItems.map((item) => {
+          const href = pathname === '/' ? '#' + item.id : '/#' + item.id;
+          const active = pathname === '/' && activeSection === item.id;
+          return (
+            <a
+              key={item.id}
+              href={href}
+              className={active ? 'is-active' : ''}
+              onClick={() => setOpen(false)}
             >
-              Reservar turno
-            </Button>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
+    </header>
   );
 }

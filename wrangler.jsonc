@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "pauhoyos-com",
+  "main": "./worker/index.js",
+  "compatibility_date": "2026-07-22",
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/mis-15+10*", "/mis-15%2B10*"]
+  },
+  "routes": [
+    {
+      "pattern": "pauhoyos.com",
+      "custom_domain": true
+    }
+  ],
+  "secrets": {
+    "required": [
+      "RSVP_APPS_SCRIPT_URL",
+      "RSVP_SHARED_SECRET",
+      "TURNSTILE_SECRET"
+    ]
+  }
+}

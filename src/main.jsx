@@ -1,16 +1,11 @@
-// src/main.jsx
-import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { AuthProvider } from './context/AuthContext';
-import 'bootstrap/dist/css/bootstrap.min.css'; // estilos de Bootstrap
-import 'bootstrap-icons/font/bootstrap-icons.css'; // iconos de Bootstrap 
-import './styles/global.css'; // estilos de react-toastify
+import './styles/global.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-  </React.StrictMode>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
 );

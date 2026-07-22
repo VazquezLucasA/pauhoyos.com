@@ -1,3 +1,128 @@
-.nav-link:hover {
-  text-decoration: underline;
+.main-navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 10px clamp(1.25rem, 5vw, 5rem);
+  background: rgba(255, 246, 239, 0.88);
+  border-bottom: 1px solid rgba(47, 47, 47, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  max-width: 105px;
+}
+
+.brand-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2.4rem);
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--jet);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.nav-links a::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.45rem;
+  left: 0;
+  height: 2px;
+  background: var(--fawn);
+  content: '';
+  opacity: 0;
+  transform: scaleX(0.2);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  padding: 7px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-toggle span:not(.sr-only) {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--jet);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .main-navbar {
+    min-height: 68px;
+  }
+
+  .brand-link {
+    max-width: 90px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    right: 0;
+    left: 0;
+    display: grid;
+    gap: 0;
+    padding: 0 1.5rem;
+    overflow: hidden;
+    background: var(--seashell);
+    border-bottom: 1px solid rgba(47, 47, 47, 0.08);
+    max-height: 0;
+    transition: max-height 220ms ease, padding 220ms ease;
+  }
+
+  .nav-links.is-open {
+    max-height: 280px;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .nav-links a {
+    padding: 0.85rem 0;
+  }
+
+  .nav-links a::after {
+    right: auto;
+    width: 34px;
+  }
 }

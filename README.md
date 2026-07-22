@@ -1,17 +1,12 @@
-# Frontend - Pau Hoyos
+# Paula Hoyos
 
-## Requisitos
-- Node.js (versión LTS recomendada)
-- npm o yarn
+Sitio React/Vite con una landing profesional, Psikipedia estática y la invitación privada en /mis-15+10.
 
-## Instalación de dependencias
-Para instalar las dependencias del proyecto, ejecuta:
-```bash
-npm install
-```
+## Desarrollo
 
-## Levantar el proyecto
-Para iniciar el servidor de desarrollo:
-```bash
-npm run dev
-```
+1. Ejecutar npm install.
+2. Copiar .env.example a .env.local y definir VITE_TURNSTILE_SITE_KEY para probar el RSVP.
+3. Copiar .dev.vars.example a .dev.vars y cargar los secretos del Worker.
+4. Ejecutar npm run dev.
+
+La configuración de Google Sheets, Turnstile, Cloudflare Workers y despliegue automático está en docs/cloudflare-setup.md.

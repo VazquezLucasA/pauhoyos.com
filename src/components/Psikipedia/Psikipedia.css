@@ -1,0 +1,146 @@
+.psikipedia-page {
+  min-height: 75vh;
+  padding: 9.5rem 0 5rem;
+  background: var(--seashell);
+}
+
+.psikipedia-container {
+  width: min(1100px, calc(100% - 2.5rem));
+  margin: 0 auto;
+}
+
+.psikipedia-intro {
+  max-width: 660px;
+  margin-bottom: 2.5rem;
+}
+
+.psikipedia-intro p:first-child,
+.course-tag {
+  color: #a86e3a;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.psikipedia-intro h1,
+.course-detail h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+}
+
+.psikipedia-intro > p:last-child {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.course-search {
+  width: min(100%, 480px);
+  margin-bottom: 2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(47, 47, 47, 0.18);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--jet);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.course-card {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  padding: 1.6rem;
+  background: #fff;
+  border: 1px solid rgba(47, 47, 47, 0.08);
+  border-radius: 15px;
+  box-shadow: 0 10px 28px rgba(47, 47, 47, 0.06);
+}
+
+.course-card > i {
+  margin: 1.25rem 0;
+  color: #af7141;
+  font-size: 2rem;
+}
+
+.course-card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.course-card p {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.course-card a,
+.back-link {
+  margin-top: auto;
+  color: #91592d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.course-empty {
+  padding: 2.5rem 0;
+  color: var(--ink-soft);
+}
+
+.course-detail {
+  min-height: 75vh;
+  padding: 9.5rem 0 5rem;
+  background: #f1e4d8;
+}
+
+.course-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.course-detail-summary {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.course-units {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.course-units li {
+  display: flex;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(47, 47, 47, 0.12);
+}
+
+.course-units span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--fawn);
+  color: var(--jet);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .courses-grid,
+  .course-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
